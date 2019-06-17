@@ -9,6 +9,10 @@ import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+	
+	private static Scene mainScene;
+	
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -18,13 +22,18 @@ public class Main extends Application {
 			scrollPane.setFitToHeight(true);
 			scrollPane.setFitToWidth(true);
 			
-			Scene mainScene = new Scene(scrollPane);//cria a cena principal passando um objeto
+			mainScene = new Scene(scrollPane);//cria a cena principal passando um objeto
 			primaryStage.setScene(mainScene);//seta a cena principal
 			primaryStage.setTitle("Sample JavaFX application");//titulo do palco
 			primaryStage.show();//mostra o palco na tela
+	
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static Scene getmainScene() {
+		return mainScene;
 	}
 
 	public static void main(String[] args) {
